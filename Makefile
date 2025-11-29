@@ -14,12 +14,17 @@ build:
 	@$(DOCKER_COMPOSE) up -d --build
 	@printf "Application built and started\n"
 
+setup:
+	@printf "Creating necessary directories...\n"
+	@mkdir -p $(DATA_DIR)
+	@chmod 777 $(DATA_DIR)
+
 down:
-	@printf "⏹️  Stopping $(NAME)...\n"
+	@printf "Stopping $(NAME)...\n"
 	@$(DOCKER_COMPOSE) down
 
 stop:
-	@printf "⏸️  Stopping containers...\n"
+	@printf "Stopping containers...\n"
 	@$(DOCKER_COMPOSE) stop
 
 start:
@@ -27,7 +32,7 @@ start:
 	@$(DOCKER_COMPOSE) start
 
 restart:
-	@printf "🔄 Restarting $(NAME)...\n"
+	@printf "Restarting $(NAME)...\n"
 	@$(DOCKER_COMPOSE) restart
 
 re: down
@@ -55,4 +60,4 @@ reset-db:
 	@$(DOCKER_COMPOSE) restart php
 	@printf "Database reset. New database will be created on next request\n"
 
-.PHONY: all build down stop start restart re clean fclean reset-db
+.PHONY: all build setup down stop start restart re clean fclean reset-db
