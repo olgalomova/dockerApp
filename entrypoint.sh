@@ -10,10 +10,10 @@ mkdir -p /var/www/html/backend/data
 DB_FILE="/var/www/html/backend/data/database.sqlite"
 
 if [ ! -f "$DB_FILE" ]; then
-    touch "$DB_FILE"
-    echo "✓ Файл БД создан: $DB_FILE"
+	touch "$DB_FILE"
+	echo "✓ Файл БД создан: $DB_FILE"
 else
-    echo "✓ Файл БД уже существует"
+	echo "✓ Файл БД уже существует"
 fi
 
 # Даём полные права на директорию и файл
