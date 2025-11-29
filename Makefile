@@ -28,7 +28,7 @@ stop:
 	@$(DOCKER_COMPOSE) stop
 
 start:
-	@printf "▶️  Starting containers...\n"
+	@printf "Starting containers...\n"
 	@$(DOCKER_COMPOSE) start
 
 restart:
